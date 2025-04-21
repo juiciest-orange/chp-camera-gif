@@ -91,3 +91,32 @@ images[0].save(
 
 for f in filenames:
     os.remove(f)
+
+html_page_1 = u"""<style>
+.content {max-width: 500px; margin: auto;}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+h1 {text-align: center;}
+h3 {text-align: center;}
+</style>
+<body>"""
+
+html_page_2 = """
+<h1>{a} at {b} CHP Traffic Camera</h1>
+<h3>Gif made on {c} by Carena</h3>
+<div class="content">
+  <!-- Page content -->
+  <img src="out.gif" alt="GIF of CHP traffic camera">
+</div>
+
+# </body>""".format(a = camera_info_matches[0], b = camera_location_matches[0], c = dt.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+complete_page = html_page_1 + html_page_2
+
+with open(os.getcwd()+'/chp_cam.html', 'w') as file:
+    file.write(complete_page)
+    file.close()
