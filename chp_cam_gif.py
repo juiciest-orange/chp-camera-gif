@@ -81,7 +81,7 @@ print('[%s] Create gif from screenshots' %dt.now().strftime("%Y-%m-%d %H:%M:%S")
 images = [Image.open(image_path) for image_path in filenames]
 output_gif_path = 'out.gif'
 duration = 2
-loop = 10
+loop = 0
 images[0].save(
     output_gif_path,
     save_all=True,
